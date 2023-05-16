@@ -1,0 +1,27 @@
+<h2>{{title}}</h2>
+<form>
+    <label for="signin-email">E-Mail</label><br>
+    <input type="email" name="signin-email" id="signin-email" [(ngModel)]="email"><br>
+
+    <label for="signin-password">Passwort</label><br>
+    <input type="password" name="signin-password" id="signin-password" [(ngModel)]="password" src={{password}}><br>
+
+    <label for="signin-password">Passwort (Wiederholung)</label><br>
+    <input type="password" name="signin-password-confirm" id="signin-password-confirm"
+        [(ngModel)]="password_confirm"><br>
+
+    <button type="submit">Einloggen</button><br>
+
+    <h3>Data-Bindings</h3>
+    <ul>
+        <li>
+            <span>E-Mail: {{email}}</span>
+        </li>
+        <li>
+            <span>Passwort: {{password}}</span>
+        </li>
+        <li>
+            <span>Passwort (Wiederholung): {{password_confirm}}</span>
+        </li>
+    </ul>
+</form>

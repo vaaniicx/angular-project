@@ -1,0 +1,27 @@
+<h2>{{title}}</h2>
+<form>
+    <label for="signup-email">E-Mail</label><br>
+    <input type="email" name="signup-email" id="signup-email" [(ngModel)]="email"><br>
+
+    <label for="signup-password">Passwort</label><br>
+    <input type="password" name="signup-password" id="signup-password" [(ngModel)]="password" src={{password}}><br>
+
+    <label for="signup-password">Passwort (Wiederholung)</label><br>
+    <input type="password" name="signup-password-confirm" id="signup-password-confirm"
+        [(ngModel)]="password_confirm"><br>
+
+    <label for="signup-password">Firma</label><br>
+    <input type="text" name="signup-password-confirm" id="signup-company" [(ngModel)]="company" disabled><br>
+
+    <label for="signup-street">Straße</label><br>
+    <input type="text" name="signup-street" id="signup-street" [(ngModel)]="street"><br>
+
+    <label for="signup-city">Stadt</label><br>
+    <input type="text" name="signup-city" id="signup-city" [(ngModel)]="city"><br>
+
+    <label for="signup-zip-code">Postleitzahl</label><br>
+    <input type="text" name="signup-zip-code" id="signup-zip-code" [(ngModel)]="zip_code"><br>
+
+
+    <button type="submit">Registrieren</button><br>
+</form>
