@@ -9,16 +9,18 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class SigninComponent implements OnInit {
   title: String = 'Sign-In';
 
-  signInForm: FormGroup = new FormGroup({
-    email: new FormControl('', [
-      Validators.required,
-      Validators.email,
-      Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$'),
-    ]),
-    password: new FormControl('', Validators.required),
-  });
+  signInForm: FormGroup;
 
-  constructor() {}
+  constructor() {
+    this.signInForm = new FormGroup({
+      email: new FormControl('', [
+        Validators.required,
+        Validators.email,
+        Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$'),
+      ]),
+      password: new FormControl('', Validators.required),
+    });
+  }
 
   ngOnInit(): void {}
 
