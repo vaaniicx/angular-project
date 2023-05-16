@@ -20,5 +20,5 @@
     <p>Es sind nicht alle Pflichtfelder (korrekt) ausgefüllt!</p>
   </div>
 
-  <button type="submit">Einloggen</button><br />
+  <button type="submit" [disabled]="signInForm.invalid">Einloggen</button><br />
 </form>
