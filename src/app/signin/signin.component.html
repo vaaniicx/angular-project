@@ -1,5 +1,5 @@
 <h2>{{ title }}</h2>
-<form [formGroup]="form_data" (ngSubmit)="onSubmit()">
+<form [formGroup]="signInForm" (ngSubmit)="onSubmit()">
   <label for="signin-email">E-Mail</label><br />
   <input
     type="email"
@@ -16,7 +16,7 @@
     formControlName="password"
   /><br />
 
-  <div [hidden]="form_data.valid">
+  <div [hidden]="signInForm.valid">
     <p>Es sind nicht alle Pflichtfelder (korrekt) ausgefüllt!</p>
   </div>
 

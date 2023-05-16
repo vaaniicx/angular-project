@@ -14,7 +14,7 @@ import {
 export class SigninComponent implements OnInit {
   title: String = 'Sign-In';
 
-  form_data: FormGroup = new FormGroup({
+  signInForm: FormGroup = new FormGroup({
     email: new FormControl('', [
       Validators.required,
       Validators.email,
@@ -28,9 +28,13 @@ export class SigninComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit(): void {
+    if (this.signInForm.invalid) {
+      return;
+    }
+
     if (
-      this.form_data.controls['email'].value == 'test@test.at' &&
-      this.form_data.controls['password'].value == '123456789'
+      this.signInForm.controls['email'].value == 'test@test.at' &&
+      this.signInForm.controls['password'].value == '123456789'
     ) {
       console.log('Login successful');
     } else {
