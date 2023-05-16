@@ -1,5 +1,5 @@
 <h2>{{ title }}</h2>
-<form [formGroup]="signUpForm">
+<form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
   <div>
     <label for="signup-email">E-Mail</label><br />
     <input
@@ -25,6 +25,10 @@
     id="signup-password-confirm"
     formControlName="password_confirm"
   /><br />
+
+  <div *ngIf="signUpForm.errors?.['passwordmatcherror']">
+    <span>Passwörter stimmen nicht miteinander überein!</span><br />
+  </div>
 
   <label for="signup-company">Firma</label><br />
   <input
@@ -64,5 +68,7 @@
   <div [hidden]="signUpForm.valid">
     <p>Es sind nicht alle Pflichtfelder (korrekt) ausgefüllt!</p>
   </div>
-  <button type="submit">Registrieren</button><br />
+
+  <button type="submit" [disabled]="signUpForm.invalid">Registrieren</button
+  ><br />
 </form>
