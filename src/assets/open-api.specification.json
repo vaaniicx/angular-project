@@ -1,0 +1,197 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Web Frameworks - Angular Project",
+    "version": "1.0.0",
+    "description": "FH Technikum Wien Web Frameworks Übungsblatt"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:4200"
+    }
+  ],
+  "paths": {
+    "/users": {
+      "get": {
+        "summary": "Rufe alle Benutzer ab",
+        "responses": {
+          "200": {
+            "description": "Erfolgreiche Abfrage",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/register": {
+      "post": {
+        "summary": "Registriert einen neuen Benutzer",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Erfolgreiche Registrierung"
+          }
+        }
+      }
+    },
+    "users/login": {
+      "post": {
+        "summary": "Authentifiziert einen Benutzer",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserLogin"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Erfolgreiche Anmeldung"
+          },
+          "401": {
+            "description": "Ungültige Anmeldeinformationen"
+          }
+        }
+      }
+    },
+    "/users/{userId}": {
+      "get": {
+        "summary": "Ruft Informationen über einen Benutzer ab",
+        "parameters": [
+          {
+            "id": "userId",
+            "description": "ID des Benutzers",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Erfolgreiche Abfrage",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Aktualisiert einen Benutzer",
+        "parameters": [
+          {
+            "id": "userId",
+            "description": "ID des Benutzers",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Benutzer erfolgreich aktualisiert"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Löscht einen Benutzer",
+        "parameters": [
+          {
+            "id": "userId",
+            "description": "ID des Benutzers",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "User deleted"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "User": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "company": {
+            "type": "string"
+          },
+          "Address": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer"
+              },
+              "street": {
+                "type": "string"
+              },
+              "city": {
+                "type": "string"
+              },
+              "zipcode": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "UserLogin": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
