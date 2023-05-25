@@ -1,0 +1,89 @@
+============ PLANUNG SOFTWARE ============
+
+1. Aus welchen Teilen wird diese bestehen
+
+	- Angular als Frontend-Framework
+		- Module (Root-Modul als Einstiegspunkt)
+		- Komponenten
+		- Services
+		- Templates
+		- Routing
+		- Modelle
+	- Node.js mit Express als Backend-Framework
+		- Server-Konfiguration
+		- Routen
+		- Controller
+		- Datenbankanbindung
+
+
+2. Welche Variablen müssen übergeben, validiert, gespeichert oder geladen werden
+
+	- Rufe alle Benutzer ab (/users):
+		- Keine zusätzlichen Variablen erforderlich
+	
+	- Registriert einen neuen Benutzer (/users/register):
+		- Erforderliche Eingabedaten (Validierung: ja):
+			- User
+				- email (string): Die E-Mail-Adresse des Benutzers
+				- password (string): Das Passwort des Benutzers
+				- company (string): Das Unternehmen des Benutzers
+			- Address (object): Die Adresse des Benutzers mit den folgenden Eigenschaften:
+				- street (string): Die Straße der Adresse
+				- city (string): Die Stadt der Adresse
+				- zipcode (string): Die Postleitzahl der Adresse
+
+	- Authentifiziert einen Benutzer (/users/login):
+		- Erforderliche Eingabedaten (Validierung: ja):
+			- UserLogin
+				- email (string): Die E-Mail-Adresse des Benutzers
+				- password (string): Das Passwort des Benutzers
+
+	- Ruft Informationen über einen Benutzer ab (/users/{userId}):
+		- Erforderliche Variablen:
+			- userId (integer): Die ID des Benutzers, dessen Informationen abgerufen werden sollen
+
+	- Aktualisiert einen Benutzer (/users/{userId}):
+		- Erforderliche Variablen:
+			- userId (integer): Die ID des Benutzers, der aktualisiert werden soll
+		- Erforderliche Eingabedaten (Validierung: ja):
+			Die gleichen Eingabedaten wie bei der Registrierung eines neuen Benutzers
+
+	- Löscht einen Benutzer (/users/{userId}):
+		- Erforderliche Variablen:
+			- userId (integer): Die ID des Benutzers, der gelöscht werden soll
+
+
+3. Wo liegen welche Ressourcen
+
+	- Angular-Projekt
+		- Module (Root-Modul als Einstiegspunkt)
+		- Komponenten
+		- Services
+		- Templates
+		- Routing
+		- Modelle
+	- Node.js/Express.js -Projekt
+		- Server-Konfiguration
+		- Routen
+		- Controller
+		- Datenbankanbindung
+
+
+4. Wie kommunizieren die einzelnen Teile miteinander
+
+	- Kommunikation zwischen Angular- und Node.js -Applikation über die RESTful API-Kommunikation
+		- Node.js-Backend stellt REST-Endpunkte bereit
+		- Angular stellt HTTP-Anfragen an die API-Endpunkte
+		
+
+5. Welche Technologien kommen zum Einsatz
+
+	- Angular:
+		- TypeScript
+		- HTML5, CSS3
+		- RxJS
+		- Angular Material
+	- Node.js/Express.js
+		- Node.js
+		- Express.js
+		- npm
